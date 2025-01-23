@@ -5,10 +5,10 @@ import (
 
 	"encoder/domain"
 
-	_ "github.com/jinzhu/gorm/dialects/sqlite"
 	_ "github.com/lib/pq"
+	_ "gorm.io/driver/sqlite"
 
-	"github.com/jinzhu/gorm"
+	"gorm.io/gorm"
 )
 
 type Database struct {
@@ -26,7 +26,7 @@ func NewDb() *Database {
 	return &Database{}
 }
 
-func NewDtTest() *gorm.DB {
+func NewDbTest() *gorm.DB {
 	dbInstance := NewDb()
 	dbInstance.Env = "Test"
 	dbInstance.DbTypeTest = "sqlite3"
